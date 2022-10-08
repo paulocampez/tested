@@ -11,50 +11,45 @@ import { Link } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 400,
-    height:580,
+    height: 580,
     padding: 10,
     marginTop: 20,
-    
+
   },
-    media: {
-    paddingTop: '56.25%', 
-    height:350,
-    width:350,
+  media: {
+    paddingTop: '56.25%',
+    height: 350,
+    width: 350,
   },
- btn:{
-  textDecoration:'none',
-  margin: '10px auto'
- },
+  btn: {
+    textDecoration: 'none',
+    margin: '10px auto'
+  },
 }));
 
-const CardHome = ({ Title,Year,Poster,imdbID,className}) => {
+const CardHome = ({ Title, Year, Poster, imdbID, className }) => {
   const classes = useStyles();
-    
+
 
   return (
-    <Card className={classNames(className,classes.root)}>
+    <Card className={classNames(className, classes.root)}>
       <CardHeader
-           
-       
+
+
         title={Title}
         subheader={Year}
       />
-       <CardMedia
-            className={classes.media}
-            image={`${Poster}`}
-            title={Title}
-          />
-           
-      <CardActions disableSpacing>
-      
-      <Link to={`/home/${imdbID}`} className={classes.btn}><AddCircleIcon color="primary"  style={{ fontSize: 40 }}/></Link>       
-     
-           
-    
+      <CardMedia
+        className={classes.media}
+        image={`${Poster}`}
+        title={Title}
+      />
 
-       </CardActions>
-     </Card>
+      <CardActions disableSpacing>
+        <Link to={`/details/${imdbID}`} className={classes.btn}><AddCircleIcon color="primary" style={{ fontSize: 40 }} /></Link>
+      </CardActions>
+    </Card>
   );
 }
 
-export default  CardHome
+export default CardHome
